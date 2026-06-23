@@ -15,3 +15,11 @@ services:
         sync: false
       - key: TELEGRAM_CHAT_ID
         sync: false
+      - key: VITE_YM_ID
+        sync: false
+      - key: VITE_GA_ID
+        sync: false
+      - key: VITE_YANDEX_VERIFICATION
+        sync: false
+      - key: VITE_GOOGLE_VERIFICATION
+        sync: false

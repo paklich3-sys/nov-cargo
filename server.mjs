@@ -33,11 +33,11 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", ...(schemaHash ? [schemaHash] : [])],
+      scriptSrc: ["'self'", "https://mc.yandex.ru", "https://www.googletagmanager.com", ...(schemaHash ? [schemaHash] : [])],
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:"],
-      connectSrc: ["'self'"],
+      imgSrc: ["'self'", "data:", "https://mc.yandex.ru", "https://www.google-analytics.com"],
+      connectSrc: ["'self'", "https://mc.yandex.ru", "https://www.google-analytics.com", "https://region1.google-analytics.com", "https://www.googletagmanager.com"],
       objectSrc: ["'none'"],
       frameAncestors: ["'none'"],
       baseUri: ["'self'"],
