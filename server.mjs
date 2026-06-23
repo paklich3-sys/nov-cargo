@@ -22,6 +22,13 @@ try {
 
 app.disable("x-powered-by");
 if (process.env.TRUST_PROXY === "1") app.set("trust proxy", 1);
+app.use((req, res, next) => {
+  const host = (req.hostname || "").toLowerCase();
+  if (host === "nov-cargo.online" || host === "www.nov-cargo.online") {
+    return res.redirect(301, `https://nov-cargo.ru${req.originalUrl}`);
+  }
+  next();
+});
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
