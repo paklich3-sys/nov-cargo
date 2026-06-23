@@ -16,7 +16,7 @@ services:
       - key: TELEGRAM_CHAT_ID
         sync: false
       - key: VITE_YM_ID
-        sync: false
+        value: "110089421"
       - key: VITE_GA_ID
         sync: false
       - key: VITE_YANDEX_VERIFICATION

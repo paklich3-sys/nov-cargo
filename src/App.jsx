@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { trackMetrikaGoal } from "./analytics.js";
 import {
   ArrowRight, Buildings, CalendarBlank, CaretDown, CaretLeft, CaretRight, Check, Clock, Globe, MapPin,
   Package, Phone, ShieldCheck, X,
@@ -121,6 +122,7 @@ function LeadForm({ t, lang, compact = false, onDone }) {
       const response = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
       const result = await response.json();
       if (!response.ok) throw new Error(lang === "en" ? `Could not send. Please call +7 950 688-88-62.` : result.message);
+      trackMetrikaGoal("lead_submit");
       setState("success");
       onDone?.();
     } catch (error) { setState("error"); setMessage(error.message); }
