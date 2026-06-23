@@ -33,11 +33,13 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "https://mc.yandex.ru", "https://www.googletagmanager.com", ...(schemaHash ? [schemaHash] : [])],
+      scriptSrc: ["'self'", "https://mc.yandex.ru", "https://yastatic.net", "https://www.googletagmanager.com", ...(schemaHash ? [schemaHash] : [])],
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https://mc.yandex.ru", "https://www.google-analytics.com"],
-      connectSrc: ["'self'", "https://mc.yandex.ru", "https://www.google-analytics.com", "https://region1.google-analytics.com", "https://www.googletagmanager.com"],
+      connectSrc: ["'self'", "https://mc.yandex.ru", "wss://mc.yandex.ru", "https://mc.webvisor.com", "https://mc.webvisor.org", "https://www.google-analytics.com", "https://region1.google-analytics.com", "https://www.googletagmanager.com"],
+      frameSrc: ["'self'", "blob:", "https://mc.yandex.ru", "https://mc.webvisor.com", "https://mc.webvisor.org"],
+      childSrc: ["'self'", "blob:", "https://mc.yandex.ru"],
       objectSrc: ["'none'"],
       frameAncestors: ["'none'"],
       baseUri: ["'self'"],

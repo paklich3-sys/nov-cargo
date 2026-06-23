@@ -15,12 +15,9 @@ function initYandexMetrika(id) {
   window.ym.l = Date.now();
   loadScript(`https://mc.yandex.ru/metrika/tag.js?id=${counter}`);
   window.ym(counter, "init", {
-    ssr: true,
     webvisor: true,
     clickmap: true,
     ecommerce: "dataLayer",
-    referrer: document.referrer,
-    url: location.href,
     accurateTrackBounce: true,
     trackLinks: true,
   });

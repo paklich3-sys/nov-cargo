@@ -20,6 +20,6 @@ services:
       - key: VITE_GA_ID
         sync: false
       - key: VITE_YANDEX_VERIFICATION
-        sync: false
+        value: "4249265572d06e16"
       - key: VITE_GOOGLE_VERIFICATION
         sync: false
