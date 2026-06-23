@@ -156,8 +156,15 @@ export function App() {
   const t = useMemo(() => dictionary[lang], [lang]);
 
   useEffect(() => {
-    localStorage.setItem("nov-lang", lang); document.documentElement.lang = lang;
-    const url = new URL(location.href); url.searchParams.set("lang", lang); history.replaceState(null, "", url);
+    localStorage.setItem("nov-lang", lang);
+    document.documentElement.lang = lang;
+    const url = new URL(location.href);
+    if (lang === "en") url.searchParams.set("lang", "en");
+    else url.searchParams.delete("lang");
+    const next = `${url.pathname}${url.search}${url.hash}`;
+    if (`${location.pathname}${location.search}${location.hash}` !== next) {
+      history.replaceState(null, "", next);
+    }
     document.title = lang === "ru" ? "NOV Cargo — премиальные грузоперевозки в Великом Новгороде" : "NOV Cargo — premium cargo transport in Veliky Novgorod";
   }, [lang]);
   useEffect(() => { document.body.classList.toggle("locked", menu || modal); return () => document.body.classList.remove("locked"); }, [menu, modal]);
